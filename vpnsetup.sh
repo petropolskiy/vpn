@@ -265,7 +265,7 @@ conn shared
   dpdaction=clear
   ikev2=never
   ike=aes256-sha2,aes128-sha2,aes256-sha1,aes128-sha1,aes256-sha2;modp1024,aes128-sha1;modp1024
-  phase2alg=aes_gcm-null,null-sha1,aes256-sha1,aes256-sha2_512,aes128-sha2,aes256-sha2
+  phase2alg=aes_gcm-null,null-null,aes256-sha1,aes256-sha2_512,aes128-sha2,aes256-sha2
   sha2-truncbug=no
 
 conn l2tp-psk
