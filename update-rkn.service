@@ -1,0 +1,9 @@
+[Unit]
+Description=Update RKN list
+Wants=network-online.target.wants
+ 
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/update-rkn
+User=root
+WorkingDirectory=/var/www/mr-allen.com/public_html
