@@ -1,0 +1,10 @@
+#!/bin/bash -e
+set -o pipefail
+curl -sS 'https://raw.githubusercontent.com/zapret-info/z-i/master/dump.csv' | iconv -f cp1251 \
+| sed -re 's/^([^;]*);.*$/\1/' -e 's/ \| /\n/g' | sort -u \
+| { echo '/ip firewall address-list';
+    echo 'remove [/ip firewall address-list find list=rkn]';
+    sed -rne 's/^([0-9]+\.){3}[0-9]+(\/[0-9]+)?$/add list=rkn address=&/p';
+    echo '/log info' $(date -d "+3 hours" +%D/%T); } \
+>/tmp/rkn.rsc
+mv /tmp/rkn.rsc rkn.rsc
