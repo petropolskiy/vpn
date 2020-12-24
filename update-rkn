@@ -1,6 +1,6 @@
 #!/bin/bash -e
 set -o pipefail
-/usr/bin/curl -sS 'https://raw.githubusercontent.com/zapret-info/z-i/master/dump.csv' | iconv -f cp1251 \
+/usr/bin/curl -sS 'https://raw.githubusercontent.com/zapret-info/z-i/master/dump.csv' | iconv -t cp1251 \
 | sed -re 's/^([^;]*);.*$/\1/' -e 's/ \| /\n/g' | sort -u \
 | { echo '/ip firewall address-list';
     echo 'remove [/ip firewall address-list find list=rkn]';
